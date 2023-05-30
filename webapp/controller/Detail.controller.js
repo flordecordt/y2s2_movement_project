@@ -68,6 +68,26 @@ sap.ui.define([
             })
         },   
         
+        onDelete: function () {
+            this.getModel("detailView").setProperty("/busy", true);
+            this.getModel().remove(this.getView().getBindingContext().getPath(), {
+                success: (result) => {
+                    this.getModel("detailView").setProperty("/busy", false);
+                    sap.m.MessageToast.show(this.getResourceBundle().getText("deleted"));
+                    this.getRouter().navTo("list");
+                },
+                error: (error) => {
+                    this.getModel("detailView").setProperty("/busy", false);
+                    console.error(error);
+                    sap.m.MessageBox.error(error.responseText);
+                }
+            })
+        },
+
+        onCancel: function () {
+            this.getModel().resetChanges();
+            this.getRouter().navTo("list");
+        },
 
         /* =========================================================== */
         /* begin: internal methods                                     */
@@ -190,7 +210,7 @@ sap.ui.define([
         onCloseDetailPress: function () {
             this.getModel("appView").setProperty("/actionButtonsInfo/midColumn/fullScreen", false);
             // No item should be selected on list after detail page is closed
-            this.getOwnerComponent().oListSelector.clearListListSelection();
+            //this.getOwnerComponent().oListSelector.clearListListSelection();
             this.getRouter().navTo("list");
         },
 
