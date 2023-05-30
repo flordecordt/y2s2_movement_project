@@ -51,6 +51,9 @@ sap.ui.define([
             );
         },
 
+        onSave: function() {
+            this.getModel().submitChanges();
+        },
         
 
         /* =========================================================== */

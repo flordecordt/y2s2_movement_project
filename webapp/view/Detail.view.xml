@@ -2,21 +2,19 @@
     controllerName="movement.y2s2movementproject.controller.Detail"
     xmlns="sap.m"
     xmlns:semantic="sap.f.semantic"
+    xmlns:f="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc">
 
     <semantic:SemanticPage
         id="detailPage"
         busy="{detailView>/busy}"
-        busyIndicatorDelay="{detailView>/delay}">
+        busyIndicatorDelay="{detailView>/delay}"
+        showFooter="true">
         <semantic:titleHeading>
             <Title
                 text="{MovId}"
                 level="H2"/>
         </semantic:titleHeading>
-        <semantic:headerContent>
-            <ObjectAttribute title="{i18n>priceTitle}"/>
-            <ObjectNumber />
-        </semantic:headerContent>
         <semantic:content>
 
         </semantic:content>
@@ -45,7 +43,33 @@
                     visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
                     press=".toggleFullScreen"/>
         </semantic:exitFullScreenAction>
+        <semantic:content>
+            <f:SimpleForm>
+                <f:content>
+                    <Label text="{i18n>MovId}" />
+                    <Text text="{MovId}" />
+                    <Label text="{i18n>Type}" />
+                    <Input value="{Type}" />
+                    <Label text="{i18n>MovDate}." />
+                    <DatePicker value="{ path: 'MovDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
+                    <Label text="{i18n>ChgDate}" />
+                    <DatePicker value="{ path: 'ChgDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
+                    <Label text="{i18n>ChgUser}" />
+                    <Input value="{ChgUser}" />
+                    <Label text="{i18n>Partner}" />
+                    <Input value="{Partner}" />
+                    <Label text="{i18n>Location}" />
+                    <Input value="{Location}" />
+                    <Label text="{i18n>Finished}" />
+                    <Input value="{Finished}" />
+                </f:content>
+            </f:SimpleForm>
 
+        </semantic:content>
+
+        <semantic:footerCustomActions>
+			<Button text="Save" press="onSave" />
+        </semantic:footerCustomActions>
     </semantic:SemanticPage>
 
 </mvc:View>
