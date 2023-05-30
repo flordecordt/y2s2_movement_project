@@ -46,8 +46,10 @@
         <semantic:content>
             <f:SimpleForm>
                 <f:content>
-                    <Label text="{i18n>MovId}" />
-                    <Text text="{MovId}" />
+                    <Label text="{i18n>MovId}" visible="{detailView>/new}" />
+                    <Input value="{MovId}" visible="{detailView>/new}" />
+                    <Label text="{i18n>MovId}" visible="{= !${detailView>/new} }" />
+                    <Text text="{MovId}" visible="{= !${detailView>/new} }" />
                     <Label text="{i18n>Type}" />
                     <Input value="{Type}" />
                     <Label text="{i18n>MovDate}." />
@@ -61,7 +63,7 @@
                     <Label text="{i18n>Location}" />
                     <Input value="{Location}" />
                     <Label text="{i18n>Finished}" />
-                    <Input value="{Finished}" />
+                    <CheckBox selected="{Finished}" />
                 </f:content>
             </f:SimpleForm>
 
