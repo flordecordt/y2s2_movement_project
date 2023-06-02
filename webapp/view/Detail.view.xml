@@ -11,7 +11,7 @@
         busyIndicatorDelay="{detailView>/delay}"
         showFooter="true">
         <semantic:titleHeading>
-            <Title
+            <Title id="_IDGenTitle1"
                 text="{MovId}"
                 level="H2"/>
         </semantic:titleHeading>
@@ -44,35 +44,61 @@
                     press=".toggleFullScreen"/>
         </semantic:exitFullScreenAction>
         <semantic:content>
-            <f:SimpleForm>
+        <VBox>
+            <f:SimpleForm id="_IDGenSimpleForm1">
                 <f:content>
-                    <Label text="{i18n>MovId}" visible="{detailView>/new}" />
-                    <Input value="{MovId}" visible="{detailView>/new}" />
-                    <Label text="{i18n>MovId}" visible="{= !${detailView>/new} }" />
-                    <Text text="{MovId}" visible="{= !${detailView>/new} }" />
-                    <Label text="{i18n>Type}" />
-                    <Input value="{Type}" />
-                    <Label text="{i18n>MovDate}." />
-                    <DatePicker value="{ path: 'MovDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
-                    <Label text="{i18n>ChgDate}" />
-                    <DatePicker value="{ path: 'ChgDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
-                    <Label text="{i18n>ChgUser}" />
-                    <Input value="{ChgUser}" />
-                    <Label text="{i18n>Partner}" />
-                    <Input value="{Partner}" />
-                    <Label text="{i18n>Location}" />
-                    <Input value="{Location}" />
-                    <Label text="{i18n>Finished}" />
-                    <CheckBox selected="{Finished}" />
+                    <Label id="_IDGenLabel1" text="{i18n>MovId}" visible="{detailView>/new}" />
+                    <Input id="_IDGenInput1" value="{MovId}" visible="{detailView>/new}" />
+                    <Label id="_IDGenLabel2" text="{i18n>MovId}" visible="{= !${detailView>/new} }" />
+                    <Text id="_IDGenText1" text="{MovId}" visible="{= !${detailView>/new} }" />
+                    <Label id="_IDGenLabel3" text="{i18n>Type}" />
+                    <Input id="_IDGenInput2" value="{Type}" />
+                    <Label id="_IDGenLabel4" text="{i18n>MovDate}." />
+                    <DatePicker id="_IDGenDatePicker1" value="{ path: 'MovDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
+                    <Label id="_IDGenLabel5" text="{i18n>ChgDate}" />
+                    <DatePicker id="_IDGenDatePicker2" value="{ path: 'ChgDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
+                    <Label id="_IDGenLabel6" text="{i18n>ChgUser}" />
+                    <Input id="_IDGenInput3" value="{ChgUser}" />
+                    <Label id="_IDGenLabel7" text="{i18n>Partner}" />
+                    <Input id="_IDGenInput4" value="{Partner}" />
+                    <Label id="_IDGenLabel8" text="{i18n>Location}" />
+                    <Input id="_IDGenInput5" value="{Location}" />
+                    <Label id="_IDGenLabel9" text="{i18n>Finished}" />
+                    <CheckBox id="_IDGenCheckBox1" selected="{Finished}" />
                 </f:content>
             </f:SimpleForm>
-
+             <Table inset="false" visible="{= !${detailView>/new} }" items="{ path: 'ToMov_Item' }">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <Title text="{i18n>Item}" level="H2"/>
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>ItemID}" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="{i18n>Matnr}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <ObjectIdentifier title="{ItemId}" />
+                                <ObjectNumber number="{Matnr}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
         </semantic:content>
 
         <semantic:footerCustomActions>
-			<Button text="Save" press="onSave" />
-            <Button text="Delete" press="onDelete" visible="{= !${detailView>/new} }"/>
-			<Button text="Cancel" press="onCancel" visible="{detailView>/new}"/>
+			<Button id="_IDGenButton1" text="Save" press="onSave" />
+            <Button id="_IDGenButton2" text="Delete" press="onDelete" visible="{= !${detailView>/new} }"/>
+			<Button id="_IDGenButton3" text="Cancel" press="onCancel" visible="{detailView>/new}"/>
         </semantic:footerCustomActions>
     </semantic:SemanticPage>
 
