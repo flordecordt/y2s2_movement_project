@@ -55,7 +55,15 @@
                     <Label id="_IDGenLabel4"  text="{i18n>MovDate}." />
                     <DatePicker id="_IDGenDatePicker1" placeholder="{i18n>PhMovDate}" value="{ path: 'MovDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
                     <Label id="_IDGenLabel5" text="{i18n>ChgDate}" visible="{= !${detailView>/new} }" />
-                    <DatePicker id="_IDGenDatePicker2" editable="false" placeholder="{i18n>PhChgDate}" value="{ path: 'ChgDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" visible="{= !${detailView>/new} }" />
+                    
+                    <Text text="{
+                        path: 'ChgDate',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            relative: true,
+                            relativeScale: 'auto'
+                        }
+                    }" />
                     <Label id="_IDGenLabel6" text="{i18n>ChgUser}" visible="{= !${detailView>/new} }" />
                     <Text id="_IDGenInput3" text="{ChgUser}" visible="{= !${detailView>/new} }" />
                     <Label id="_IDGenLabel7" text="{i18n>Partner}" />
