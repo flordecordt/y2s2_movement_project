@@ -53,7 +53,7 @@
                                     priority="NeverOverflow"/>
                             </layoutData>
                         </SearchField>
-                        <Select change="onTypeChange">
+                        <Select change="onTypeChange" >
                             <core:Item key="IN" text="{i18n>IN}" />
                             <core:Item key="OUT" text="{i18n>OUT}" />
                             <core:Item key="I/O" text="{i18n>IO}" />

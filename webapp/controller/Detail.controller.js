@@ -97,12 +97,10 @@ sap.ui.define([
                 const bindingContext = model.createEntry('/MovementSet', {
                     properties: {
                         MovId: '',
-                        Type: '',
+                        Type: 'IN',
                         MovDate: '',
-                        ChgDate: '',
-                        ChgUser: '',
                         Partner: '',
-                        Location: '',
+                        Location: 'NOORD',
                         Finished: false,
                     }
                 });
