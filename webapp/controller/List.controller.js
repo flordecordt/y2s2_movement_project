@@ -123,11 +123,13 @@ sap.ui.define([
         onDateChange: function(oEvent) {
             
             const sKey = oEvent.getSource().getDateValue();
-            console.log(sKey); 
+            const modifiedDate = new Date(sKey);
+            modifiedDate.setDate(modifiedDate.getDate() + 1);
+            console.log(modifiedDate);
             this._oList.getBinding("items").filter(new Filter({
                 path: "MovDate",
                 operator: FilterOperator.EQ,
-                value1: sKey
+                value1: modifiedDate
               }))
         },
 
