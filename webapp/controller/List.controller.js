@@ -112,6 +112,25 @@ sap.ui.define([
             this._oList.getBinding("items").refresh();
         },
 
+        onTypeChange: function(oEvent) {
+            const sKey = oEvent.getParameter('selectedItem').getProperty('key');
+            this._oList.getBinding("items").filter(new Filter({
+                path: "Type",
+                operator: FilterOperator.EQ,
+                value1: sKey
+              }))
+        },
+        onDateChange: function(oEvent) {
+            
+            const sKey = oEvent.getSource().getDateValue();
+            console.log(sKey); 
+            this._oList.getBinding("items").filter(new Filter({
+                path: "MovDate",
+                operator: FilterOperator.EQ,
+                value1: sKey
+              }))
+        },
+
         /**
          * Event handler for the filter, sort and group buttons to open the ViewSettingsDialog.
          * @param {sap.ui.base.Event} oEvent the button press event
