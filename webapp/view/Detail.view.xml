@@ -3,7 +3,8 @@
     xmlns="sap.m"
     xmlns:semantic="sap.f.semantic"
     xmlns:f="sap.ui.layout.form"
-    xmlns:mvc="sap.ui.core.mvc">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core">
 
     <semantic:SemanticPage
         id="detailPage"
@@ -18,12 +19,6 @@
         <semantic:content>
 
         </semantic:content>
-        <!--Semantic ShareMenu Buttons-->
-        <semantic:sendEmailAction>
-            <semantic:SendEmailAction
-                id="shareEmail"
-                press=".onSendEmailPress"/>
-        </semantic:sendEmailAction>
 
         <semantic:closeAction>
             <semantic:CloseAction
@@ -48,21 +43,30 @@
             <f:SimpleForm id="_IDGenSimpleForm1">
                 <f:content>
                     <Label id="_IDGenLabel1" text="{i18n>MovId}" visible="{detailView>/new}" />
-                    <Input id="_IDGenInput1" value="{MovId}" visible="{detailView>/new}" />
+                    <Input id="_IDGenInput1" value="{MovId}" placeholder="{i18n>PhMovId}" maxLength="4" visible="{detailView>/new}" />
                     <Label id="_IDGenLabel2" text="{i18n>MovId}" visible="{= !${detailView>/new} }" />
                     <Text id="_IDGenText1" text="{MovId}" visible="{= !${detailView>/new} }" />
                     <Label id="_IDGenLabel3" text="{i18n>Type}" />
-                    <Input id="_IDGenInput2" value="{Type}" />
-                    <Label id="_IDGenLabel4" text="{i18n>MovDate}." />
-                    <DatePicker id="_IDGenDatePicker1" value="{ path: 'MovDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
+                    <Select selectedKey="{Type}">
+					    <core:Item key="IN" text="{i18n>IN}" />
+					    <core:Item key="OUT" text="{i18n>OUT}" />
+					    <core:Item key="I/O" text="{i18n>IO}" />
+				    </Select>
+                    <Label id="_IDGenLabel4"  text="{i18n>MovDate}." />
+                    <DatePicker id="_IDGenDatePicker1" placeholder="{i18n>PhMovDate}" value="{ path: 'MovDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
                     <Label id="_IDGenLabel5" text="{i18n>ChgDate}" />
-                    <DatePicker id="_IDGenDatePicker2" value="{ path: 'ChgDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
+                    <DatePicker id="_IDGenDatePicker2" placeholder="{i18n>PhChgDate}" value="{ path: 'ChgDate', type: 'sap.ui.model.type.Date' }" displayFormat="dd.MM.yyyy" />
                     <Label id="_IDGenLabel6" text="{i18n>ChgUser}" />
-                    <Input id="_IDGenInput3" value="{ChgUser}" />
+                    <Input id="_IDGenInput3" placeholder="{i18n>PhChgUser}" value="{ChgUser}" />
                     <Label id="_IDGenLabel7" text="{i18n>Partner}" />
-                    <Input id="_IDGenInput4" value="{Partner}" />
+                    <Input id="_IDGenInput4" placeholder="{i18n>PhPartner}" value="{Partner}" />
                     <Label id="_IDGenLabel8" text="{i18n>Location}" />
-                    <Input id="_IDGenInput5" value="{Location}" />
+                    <Select selectedKey="{Location}">
+					    <core:Item key="NOORD" text="{i18n>NOORD}" />
+                        <core:Item key="ELLER" text="{i18n>ELLER}" />
+                        <core:Item key="VIADU" text="{i18n>VIADU}" />
+                        <core:Item key="LICHT" text="{i18n>LICHT}" />
+				    </Select>
                     <Label id="_IDGenLabel9" text="{i18n>Finished}" />
                     <CheckBox id="_IDGenCheckBox1" selected="{Finished}" />
                 </f:content>
